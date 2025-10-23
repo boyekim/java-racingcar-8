@@ -5,13 +5,18 @@ import racingcar.exception.RacingCarException;
 
 public class Car {
     private final String name;
-    private final Distance distance;
+    private final Integer distance;
 
     private static final int NAME_LENGTH_LIMIT = 5;
 
     private Car(String name) {
         this.name = name;
-        this.distance = new Distance();
+        this.distance = 0;
+    }
+
+    private Car(String name, Integer distance) {
+        this.name = name;
+        this.distance = distance;
     }
 
     public static Car of(String name) {
@@ -19,19 +24,11 @@ public class Car {
         return new Car(name);
     }
 
-    public void move(boolean canMove) {
+    public Car move(boolean canMove) {
         if (canMove) {
-            distance.goForward();
+            return new Car(name, distance + 1);
         }
-    }
-
-    public String buildResult() {
-        StringBuilder distanceResult = new StringBuilder(name);
-        distanceResult.append(" : ");
-        for (int i = 0; i < distance.getValue(); i++) {
-            distanceResult.append("-");
-        }
-        return distanceResult.toString();
+        return new Car(name, distance);
     }
 
     private static void validateNameLength(String name) {
@@ -47,7 +44,7 @@ public class Car {
         return name;
     }
 
-    public Distance getDistance() {
+    public Integer getDistance() {
         return distance;
     }
 }
