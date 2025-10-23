@@ -36,7 +36,7 @@ public class Car {
             throw new RacingCarException(RacingCarErrorCode.NAME_LENGTH_LIMIT_EXCEEDED, NAME_LENGTH_LIMIT);
         }
         if (name.isEmpty()) {
-            throw new RacingCarException(RacingCarErrorCode.NAME_REQUIRED);
+            throw new RacingCarException(RacingCarErrorCode.NAME_CAN_NOT_BE_EMPTY);
         }
     }
 
