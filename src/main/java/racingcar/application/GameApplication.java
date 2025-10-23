@@ -12,14 +12,14 @@ public class GameApplication {
 
     private final Printer printer;
     private final Reader reader;
-    private final ForwardStrategy forwardStrategy;
     private final RacingCarService racingCarService;
+    private final RacingService racingService;
 
     public GameApplication(AppConfig appConfig) {
         this.printer = appConfig.printer();
         this.reader = appConfig.reader();
-        this.forwardStrategy = appConfig.forwardStrategy();
         this.racingCarService = appConfig.racingCarService();
+        this.racingService = appConfig.racingService();
     }
 
     public void run() {
@@ -30,7 +30,6 @@ public class GameApplication {
         printer.printCountMessage();
         String racingCounts = reader.read();
 
-        RacingService racingService = new RacingService(forwardStrategy);
         RacingResult afterRaceCars = racingService.race(
                 cars,
                 GameCount.of(racingCounts).getValue(),

@@ -7,6 +7,7 @@ import racingcar.application.numbergenerator.RacingCarForwardStrategy;
 import racingcar.application.printer.RacingCarPrinter;
 import racingcar.application.reader.RacingCarReader;
 import racingcar.service.RacingCarService;
+import racingcar.service.RacingService;
 
 public class AppConfig {
 
@@ -24,5 +25,9 @@ public class AppConfig {
 
     public ForwardStrategy forwardStrategy() {
         return new RacingCarForwardStrategy();
+    }
+
+    public RacingService racingService() {
+        return new RacingService(forwardStrategy());
     }
 }
