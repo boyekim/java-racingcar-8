@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.application.ForwardStrategy;
 import racingcar.domain.Car;
@@ -14,18 +15,28 @@ public class RacingService {
         this.forwardStrategy = forwardStrategy;
     }
 
-    public RacingResult race(Cars cars, Integer raceNumber, List<Cars> racingResult) {
-        if (raceNumber == 0) {
-            return RacingResult.of(racingResult);
-        }
-        Cars afterRace = doEachRace(cars);
-        racingResult.add(afterRace);
-        return race(afterRace, raceNumber - 1, racingResult);
+    public RacingResult race(Cars cars, Integer raceNumber) {
+        List<Cars> carsToRace = new ArrayList<>();
+        carsToRace.add(cars);
+        List<Cars> racingResult = doRace(cars, raceNumber, carsToRace);
+        return RacingResult.of(racingResult.subList(1, racingResult.size()));
     }
 
-    private Cars doEachRace(Cars cars) {
-        List<Car> allCars = cars.getValue();
-        List<Car> racingResult = allCars.stream()
+    public List<Cars> doRace(Cars cars, Integer raceCount, List<Cars> racingResult) {
+        if (isRacingEnd(raceCount)) {
+            return racingResult;
+        }
+        Cars afterEachRace = doEachRace(cars.getValue());
+        racingResult.add(afterEachRace);
+        return doRace(afterEachRace, raceCount - 1, racingResult);
+    }
+
+    private boolean isRacingEnd(Integer raceCount) {
+        return raceCount == 0;
+    }
+
+    private Cars doEachRace(List<Car> cars) {
+        List<Car> racingResult = cars.stream()
                 .map(car -> car.move(forwardStrategy.isMovingForward()))
                 .toList();
         return Cars.of(racingResult);

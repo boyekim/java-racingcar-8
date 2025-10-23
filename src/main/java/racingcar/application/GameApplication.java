@@ -1,6 +1,5 @@
 package racingcar.application;
 
-import java.util.ArrayList;
 import racingcar.application.config.AppConfig;
 import racingcar.domain.Cars;
 import racingcar.domain.GameCount;
@@ -30,11 +29,7 @@ public class GameApplication {
         printer.printCountMessage();
         String racingCounts = reader.read();
 
-        RacingResult racingResult = racingService.race(
-                cars,
-                GameCount.of(racingCounts).getValue(),
-                new ArrayList<>()
-        );
+        RacingResult racingResult = racingService.race(cars, GameCount.of(racingCounts).getValue());
         printer.printResult(racingResult);
     }
 }
