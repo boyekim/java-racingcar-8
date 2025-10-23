@@ -4,7 +4,7 @@ import racingcar.exception.RacingCarErrorCode;
 import racingcar.exception.RacingCarException;
 
 public class GameNumber {
-    private Integer value;
+    private final Integer value;
 
     private GameNumber(Integer value) {
         this.value = value;
