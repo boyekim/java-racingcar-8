@@ -17,23 +17,6 @@ public class RacingCarService {
         return Cars.of(cars);
     }
 
-    public List<Car> findWinners(Cars cars) {
-        Integer winnerDistance = findWinnerDistance(cars);
-        List<Car> allCars = cars.getValue();
-        return allCars.stream()
-                .filter(car -> winnerDistance.equals(car.getDistance().getValue()))
-                .toList();
-    }
-
-    private Integer findWinnerDistance(Cars cars) {
-        List<Car> allCars = cars.getValue();
-        int maxDistance = 0;
-        for (Car car : allCars) {
-            maxDistance = Math.max(maxDistance, car.getDistance().getValue());
-        }
-        return maxDistance;
-    }
-
     private List<String> divideByDelimiter(String carNamesInput) {
         return Arrays.stream(carNamesInput.split(DELIMITER)).toList();
     }
