@@ -22,7 +22,7 @@ public class AppConfig {
     }
 
     public RacingCarService racingCarService() {
-        return new RacingCarService();
+        return new RacingCarService(divideStrategy());
     }
 
     public ForwardStrategy forwardStrategy() {
