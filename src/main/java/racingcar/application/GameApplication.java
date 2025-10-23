@@ -17,10 +17,10 @@ public class GameApplication {
     private final DivideStrategy divideStrategy;
 
     public GameApplication(AppConfig appConfig) {
-        this.printer = appConfig.printer();
-        this.reader = appConfig.reader();
-        this.racingCarService = appConfig.racingCarService();
-        this.racingService = appConfig.racingService();
+        printer = appConfig.printer();
+        reader = appConfig.reader();
+        racingCarService = appConfig.racingCarService();
+        racingService = appConfig.racingService();
         divideStrategy = appConfig.divideStrategy();
     }
 
