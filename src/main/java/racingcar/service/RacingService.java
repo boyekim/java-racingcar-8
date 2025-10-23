@@ -1,15 +1,16 @@
-package racingcar.application;
+package racingcar.service;
 
 import java.util.List;
+import racingcar.application.ForwardStrategy;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RacingResult;
 
-public class RacingApplication {
+public class RacingService {
 
     private final ForwardStrategy forwardStrategy;
 
-    public RacingApplication(ForwardStrategy forwardStrategy) {
+    public RacingService(ForwardStrategy forwardStrategy) {
         this.forwardStrategy = forwardStrategy;
     }
 

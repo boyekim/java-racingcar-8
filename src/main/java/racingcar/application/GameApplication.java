@@ -6,6 +6,7 @@ import racingcar.domain.Cars;
 import racingcar.domain.GameCount;
 import racingcar.domain.RacingResult;
 import racingcar.service.RacingCarService;
+import racingcar.service.RacingService;
 
 public class GameApplication {
 
@@ -29,8 +30,8 @@ public class GameApplication {
         printer.printCountMessage();
         String racingCounts = reader.read();
 
-        RacingApplication racingApplication = new RacingApplication(forwardStrategy);
-        RacingResult afterRaceCars = racingApplication.race(
+        RacingService racingService = new RacingService(forwardStrategy);
+        RacingResult afterRaceCars = racingService.race(
                 cars,
                 GameCount.of(racingCounts).getValue(),
                 new ArrayList<>()
