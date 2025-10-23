@@ -33,11 +33,6 @@ public class RacingCarPrinter implements Printer {
     }
 
     @Override
-    public void printWinners(String winnerNames) {
-        printFormat("최종 우승자 : %s", winnerNames);
-    }
-
-    @Override
     public void printResult(RacingResult racingResult) {
         List<Cars> allResult = racingResult.getValue();
         for (Cars cars : allResult) {
