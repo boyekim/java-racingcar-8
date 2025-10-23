@@ -14,12 +14,14 @@ public class GameApplication {
     private final Reader reader;
     private final RacingCarService racingCarService;
     private final RacingService racingService;
+    private final DivideStrategy divideStrategy;
 
     public GameApplication(AppConfig appConfig) {
         this.printer = appConfig.printer();
         this.reader = appConfig.reader();
         this.racingCarService = appConfig.racingCarService();
         this.racingService = appConfig.racingService();
+        divideStrategy = appConfig.divideStrategy();
     }
 
     public void run() {
