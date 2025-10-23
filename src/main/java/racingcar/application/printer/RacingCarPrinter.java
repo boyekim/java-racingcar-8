@@ -3,6 +3,8 @@ package racingcar.application.printer;
 import java.util.List;
 import racingcar.application.Printer;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.domain.RacingResult;
 
 public class RacingCarPrinter implements Printer {
     @Override
@@ -31,15 +33,33 @@ public class RacingCarPrinter implements Printer {
     }
 
     @Override
-    public void printEachResult(List<Car> carsAfterRace) {
-        for (Car car : carsAfterRace) {
-            print(car.buildResult());
+    public void printWinners(String winnerNames) {
+        printFormat("최종 우승자 : %s", winnerNames);
+    }
+
+    @Override
+    public void printResult(RacingResult racingResult) {
+        List<Cars> allResult = racingResult.getValue();
+        for (Cars cars : allResult) {
+            print("실행 결과");
+            printEachResult(cars);
+        }
+        printFinalWinners(racingResult.findWinners());
+    }
+
+    public void printEachResult(Cars cars) {
+        List<Car> allCar = cars.getValue();
+        for (Car car : allCar) {
+            print(makeResultOutput(car));
         }
         printNewLine();
     }
 
-    @Override
-    public void printWinners(String winnerNames) {
-        printFormat("최종 우승자 : %s", winnerNames);
+    private String makeResultOutput(Car car) {
+        return car.getName() + " : " + "-".repeat(Math.max(0, car.getDistance()));
+    }
+
+    private void printFinalWinners(List<String> finalWinners) {
+        print("최종 우승자 : " + String.join(",", finalWinners));
     }
 }
