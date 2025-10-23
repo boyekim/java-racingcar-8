@@ -3,7 +3,7 @@ package racingcar.application;
 import java.util.ArrayList;
 import racingcar.application.config.AppConfig;
 import racingcar.domain.Cars;
-import racingcar.domain.GameNumber;
+import racingcar.domain.GameCount;
 import racingcar.domain.RacingResult;
 import racingcar.service.RacingCarService;
 
@@ -32,7 +32,7 @@ public class GameApplication {
         RacingApplication racingApplication = new RacingApplication(forwardStrategy);
         RacingResult afterRaceCars = racingApplication.race(
                 cars,
-                GameNumber.of(racingCounts).getValue(),
+                GameCount.of(racingCounts).getValue(),
                 new ArrayList<>()
         );
         printer.printResult(afterRaceCars);
