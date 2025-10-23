@@ -1,8 +1,13 @@
 package racingcar.domain;
 
+import racingcar.exception.RacingCarErrorCode;
+import racingcar.exception.RacingCarException;
+
 public class Car {
     private final String name;
     private final Distance distance;
+
+    private static final int NAME_LENGTH_LIMIT = 5;
 
     private Car(String name) {
         this.name = name;
@@ -10,9 +15,7 @@ public class Car {
     }
 
     public static Car of(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("이름은 5자 이하여야 합니다.");
-        }
+        validateNameLength(name);
         return new Car(name);
     }
 
@@ -29,6 +32,15 @@ public class Car {
             distanceResult.append("-");
         }
         return distanceResult.toString();
+    }
+
+    private static void validateNameLength(String name) {
+        if (name.length() > NAME_LENGTH_LIMIT) {
+            throw new RacingCarException(RacingCarErrorCode.NAME_LENGTH_LIMIT_EXCEEDED, NAME_LENGTH_LIMIT);
+        }
+        if (name.isEmpty()) {
+            throw new RacingCarException(RacingCarErrorCode.NAME_REQUIRED);
+        }
     }
 
     public String getName() {
