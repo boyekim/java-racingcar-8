@@ -30,11 +30,11 @@ public class GameApplication {
         printer.printCountMessage();
         String racingCounts = reader.read();
 
-        RacingResult afterRaceCars = racingService.race(
+        RacingResult racingResult = racingService.race(
                 cars,
                 GameCount.of(racingCounts).getValue(),
                 new ArrayList<>()
         );
-        printer.printResult(afterRaceCars);
+        printer.printResult(racingResult);
     }
 }
