@@ -1,8 +1,7 @@
-package racingcar.service;
+package racingcar.application;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.application.ForwardStrategy;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RacingResult;

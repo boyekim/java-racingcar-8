@@ -1,7 +1,6 @@
-package racingcar.service;
+package racingcar.application;
 
 import java.util.List;
-import racingcar.application.DivideStrategy;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.exception.RacingCarErrorCode;

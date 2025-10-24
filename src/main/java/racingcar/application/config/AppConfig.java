@@ -9,8 +9,8 @@ import racingcar.application.numbergenerator.RacingCarForwardStrategy;
 import racingcar.application.printer.RacingCarPrinter;
 import racingcar.application.racingcardivider.RacingCarDivider;
 import racingcar.application.reader.RacingCarReader;
-import racingcar.service.CarApplication;
-import racingcar.service.RaceApplication;
+import racingcar.application.CarApplication;
+import racingcar.application.RaceApplication;
 import racingcar.application.numbergenerator.RandomNumberGenerator;
 
 public class AppConfig {
