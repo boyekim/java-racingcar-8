@@ -9,7 +9,7 @@ import racingcar.application.numbergenerator.RacingCarForwardStrategy;
 import racingcar.application.printer.RacingCarPrinter;
 import racingcar.application.racingcardivider.RacingCarDivider;
 import racingcar.application.reader.RacingCarReader;
-import racingcar.service.RacingCarService;
+import racingcar.service.CarApplication;
 import racingcar.service.RacingService;
 import racingcar.application.numbergenerator.RandomNumberGenerator;
 
@@ -23,8 +23,8 @@ public class AppConfig {
         return new RacingCarReader();
     }
 
-    public RacingCarService racingCarService() {
-        return new RacingCarService(divideStrategy());
+    public CarApplication racingCarService() {
+        return new CarApplication(divideStrategy());
     }
 
     public NumberGenerator numberGenerator() {

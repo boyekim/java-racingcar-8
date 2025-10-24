@@ -7,11 +7,11 @@ import racingcar.domain.Cars;
 import racingcar.exception.RacingCarErrorCode;
 import racingcar.exception.RacingCarException;
 
-public class RacingCarService {
+public class CarApplication {
 
     private final DivideStrategy divideStrategy;
 
-    public RacingCarService(DivideStrategy divideStrategy) {
+    public CarApplication(DivideStrategy divideStrategy) {
         this.divideStrategy = divideStrategy;
     }
 
