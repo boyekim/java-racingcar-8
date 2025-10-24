@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.application.numbergenerator;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.application.NumberGenerator;

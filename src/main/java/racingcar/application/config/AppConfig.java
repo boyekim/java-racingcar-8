@@ -11,7 +11,7 @@ import racingcar.application.racingcardivider.RacingCarDivider;
 import racingcar.application.reader.RacingCarReader;
 import racingcar.service.RacingCarService;
 import racingcar.service.RacingService;
-import racingcar.util.RandomNumberGenerator;
+import racingcar.application.numbergenerator.RandomNumberGenerator;
 
 public class AppConfig {
 
