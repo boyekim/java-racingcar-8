@@ -5,20 +5,20 @@ import racingcar.domain.Cars;
 import racingcar.domain.GameCount;
 import racingcar.domain.RacingResult;
 import racingcar.service.CarApplication;
-import racingcar.service.RacingService;
+import racingcar.service.RaceApplication;
 
 public class GameApplication {
 
     private final Printer printer;
     private final Reader reader;
     private final CarApplication carApplication;
-    private final RacingService racingService;
+    private final RaceApplication raceApplication;
 
     public GameApplication(AppConfig appConfig) {
         printer = appConfig.printer();
         reader = appConfig.reader();
         carApplication = appConfig.racingCarService();
-        racingService = appConfig.racingService();
+        raceApplication = appConfig.racingService();
     }
 
     public void run() {
@@ -29,7 +29,7 @@ public class GameApplication {
         printer.printCountMessage();
         String racingCounts = reader.read();
 
-        RacingResult racingResult = racingService.race(cars, GameCount.of(racingCounts).getValue());
+        RacingResult racingResult = raceApplication.race(cars, GameCount.of(racingCounts).getValue());
         printer.printResult(racingResult);
     }
 }

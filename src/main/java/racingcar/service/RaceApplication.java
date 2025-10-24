@@ -7,11 +7,11 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RacingResult;
 
-public class RacingService {
+public class RaceApplication {
 
     private final ForwardStrategy forwardStrategy;
 
-    public RacingService(ForwardStrategy forwardStrategy) {
+    public RaceApplication(ForwardStrategy forwardStrategy) {
         this.forwardStrategy = forwardStrategy;
     }
 

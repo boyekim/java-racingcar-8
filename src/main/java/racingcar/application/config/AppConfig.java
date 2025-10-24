@@ -10,7 +10,7 @@ import racingcar.application.printer.RacingCarPrinter;
 import racingcar.application.racingcardivider.RacingCarDivider;
 import racingcar.application.reader.RacingCarReader;
 import racingcar.service.CarApplication;
-import racingcar.service.RacingService;
+import racingcar.service.RaceApplication;
 import racingcar.application.numbergenerator.RandomNumberGenerator;
 
 public class AppConfig {
@@ -35,8 +35,8 @@ public class AppConfig {
         return new RacingCarForwardStrategy(numberGenerator());
     }
 
-    public RacingService racingService() {
-        return new RacingService(forwardStrategy());
+    public RaceApplication racingService() {
+        return new RaceApplication(forwardStrategy());
     }
 
     public DivideStrategy divideStrategy() {
