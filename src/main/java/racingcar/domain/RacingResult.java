@@ -23,7 +23,7 @@ public class RacingResult {
                 .toList();
     }
 
-    public Integer findWinnerDistance(List<Car> cars) {
+    private Integer findWinnerDistance(List<Car> cars) {
         int result = 0;
         for (Car car : cars) {
             result = Math.max(result, car.getDistance());
