@@ -59,4 +59,31 @@ class CarTest {
                 .isInstanceOf(RacingCarException.class)
                 .hasMessage(RacingCarErrorCode.NAME_CAN_NOT_BE_EMPTY.getMessage());
     }
+
+    @Test
+    @DisplayName("움직일 때 정해진 거리가 정상적으로 늘어난다.")
+    void moveForward() {
+        // given
+        int forwardLength = 1;
+        Car car = Car.of("boye");
+
+        // when
+        Car movedCar = car.move(true);
+
+        // then
+        assertThat(movedCar.getDistance()).isEqualTo(forwardLength);
+    }
+
+    @Test
+    @DisplayName("움직이지 않는 상황일 때 거리가 늘어나지 않는다.")
+    void notMoveForward() {
+        // given
+        Car car = Car.of("boye");
+
+        // when
+        Car notMovedCar = car.move(false);
+
+        // then
+        assertThat(notMovedCar.getDistance()).isEqualTo(0);
+    }
 }
