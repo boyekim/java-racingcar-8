@@ -8,6 +8,7 @@ public class Car {
     private final Integer distance;
 
     private static final int NAME_LENGTH_LIMIT = 5;
+    private static final int FORWARD_LENGTH = 1;
 
     private Car(String name) {
         this.name = name;
@@ -26,7 +27,7 @@ public class Car {
 
     public Car move(boolean canMove) {
         if (canMove) {
-            return new Car(name, distance + 1);
+            return new Car(name, distance + FORWARD_LENGTH);
         }
         return new Car(name, distance);
     }
