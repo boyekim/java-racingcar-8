@@ -12,9 +12,16 @@ public class RacingCarDivider implements DivideStrategy {
 
     @Override
     public List<String> divideByDelimiter(String input) {
+        validateInputExist(input);
         List<String> dividedNames = Arrays.stream(input.split(DELIMITER)).toList();
         validateDuplicatedNames(dividedNames);
         return dividedNames;
+    }
+
+    private void validateInputExist(String input) {
+        if (input.isEmpty()) {
+            throw new RacingCarException(RacingCarErrorCode.NAME_REQUIRED);
+        }
     }
 
     private void validateDuplicatedNames(List<String> dividedNames) {
