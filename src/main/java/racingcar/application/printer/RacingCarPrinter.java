@@ -35,8 +35,9 @@ public class RacingCarPrinter implements Printer {
     @Override
     public void printResult(RacingResult racingResult) {
         List<Cars> allResult = racingResult.getValue();
+        printNewLine();
+        print("실행 결과");
         for (Cars cars : allResult) {
-            print("실행 결과");
             printEachResult(cars);
         }
         printFinalWinners(racingResult.findWinners());
@@ -55,6 +56,6 @@ public class RacingCarPrinter implements Printer {
     }
 
     private void printFinalWinners(List<String> finalWinners) {
-        print("최종 우승자 : " + String.join(",", finalWinners));
+        print("최종 우승자 : " + String.join(", ", finalWinners));
     }
 }
