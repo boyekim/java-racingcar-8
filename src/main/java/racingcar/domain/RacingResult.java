@@ -15,10 +15,10 @@ public class RacingResult {
 
     public List<String> findWinners() {
         Cars lastResult = value.getLast();
-        List<Car> allCar = lastResult.getValue();
-        Integer winnerDistance = findWinnerDistance(allCar);
-        return lastResult.getValue().stream()
-                .filter(car -> winnerDistance.equals(car.getDistance()))
+        List<Car> carsAtLastResult = lastResult.getValue();
+        Integer winnerDistance = findWinnerDistance(carsAtLastResult);
+        List<Car> winnerCars = getWinnerCars(carsAtLastResult, winnerDistance);
+        return winnerCars.stream()
                 .map(Car::getName)
                 .toList();
     }
@@ -29,6 +29,12 @@ public class RacingResult {
             result = Math.max(result, car.getDistance());
         }
         return result;
+    }
+
+    private List<Car> getWinnerCars(List<Car> cars, Integer winnerDistance) {
+        return cars.stream()
+                .filter(car -> winnerDistance.equals(car.getDistance()))
+                .toList();
     }
 
     public List<Cars> getValue() {
