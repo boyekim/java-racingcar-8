@@ -17,7 +17,7 @@ class CarTest {
         String name = "boye";
 
         // when
-        Car car = Car.of(name);
+        Car car = Car.from(name);
 
         // then
         assertThat(car.getName()).isEqualTo("boye");
@@ -30,7 +30,7 @@ class CarTest {
         String name = "sumin";
 
         // when
-        Car car = Car.of(name);
+        Car car = Car.from(name);
 
         // then
         assertThat(car.getName()).isEqualTo("sumin");
@@ -43,7 +43,7 @@ class CarTest {
         String name = "boyekim";
 
         // when, then
-        assertThatThrownBy(() -> Car.of(name))
+        assertThatThrownBy(() -> Car.from(name))
                 .isInstanceOf(RacingCarException.class)
                 .hasMessage(String.format(RacingCarErrorCode.NAME_LENGTH_LIMIT_EXCEEDED.getMessage(), 5));
     }
@@ -55,7 +55,7 @@ class CarTest {
         String name = "";
 
         // when, then
-        assertThatThrownBy(() -> Car.of(name))
+        assertThatThrownBy(() -> Car.from(name))
                 .isInstanceOf(RacingCarException.class)
                 .hasMessage(RacingCarErrorCode.NAME_CAN_NOT_BE_EMPTY.getMessage());
     }
@@ -65,7 +65,7 @@ class CarTest {
     void moveForward() {
         // given
         int forwardLength = 1;
-        Car car = Car.of("boye");
+        Car car = Car.from("boye");
 
         // when
         Car movedCar = car.move(true);
@@ -78,7 +78,7 @@ class CarTest {
     @DisplayName("움직이지 않는 상황일 때 거리가 늘어나지 않는다.")
     void notMoveForward() {
         // given
-        Car car = Car.of("boye");
+        Car car = Car.from("boye");
 
         // when
         Car notMovedCar = car.move(false);

@@ -9,7 +9,7 @@ public class RacingResult {
         this.value = value;
     }
 
-    public static RacingResult of(List<Cars> result) {
+    public static RacingResult from(List<Cars> result) {
         return new RacingResult(result);
     }
 

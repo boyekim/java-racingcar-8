@@ -15,8 +15,8 @@ public class CarApplication {
     public Cars saveCars(String carNamesInput) {
         List<String> carNames = divideStrategy.divideByDelimiter(carNamesInput);
         List<Car> cars = carNames.stream()
-                .map(Car::of)
+                .map(Car::from)
                 .toList();
-        return Cars.of(cars);
+        return Cars.from(cars);
     }
 }

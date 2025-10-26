@@ -9,7 +9,7 @@ public class Cars {
         this.value = value;
     }
 
-    public static Cars of(List<Car> cars) {
+    public static Cars from(List<Car> cars) {
         return new Cars(cars);
     }
 

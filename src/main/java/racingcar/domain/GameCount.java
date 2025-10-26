@@ -10,7 +10,7 @@ public class GameCount {
         this.value = value;
     }
 
-    public static GameCount of(String gameNumber) {
+    public static GameCount from(String gameNumber) {
         validateGameNumberExist(gameNumber);
         Integer gameCount = validateGameCountInteger(gameNumber);
         validateGameCountPositive(gameCount);

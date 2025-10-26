@@ -27,7 +27,7 @@ public class GameApplication {
         printer.printCountMessage();
         String racingCounts = reader.read();
 
-        RacingResult racingResult = raceApplication.race(cars, GameCount.of(racingCounts).getValue());
+        RacingResult racingResult = raceApplication.race(cars, GameCount.from(racingCounts).getValue());
         printer.printResult(racingResult);
     }
 }

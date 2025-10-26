@@ -13,12 +13,12 @@ class CarsTest {
     @DisplayName("자동차 목록이 정상 저장됨을 확인한다.")
     void saveCars() {
         // given
-        Car carA = Car.of("Boye");
-        Car carB = Car.of("Sumin");
-        Car carC = Car.of("Uchae");
+        Car carA = Car.from("Boye");
+        Car carB = Car.from("Sumin");
+        Car carC = Car.from("Uchae");
 
         // when
-        Cars cars = Cars.of(List.of(carA, carB, carC));
+        Cars cars = Cars.from(List.of(carA, carB, carC));
 
         // then
         assertThat(cars.getValue())

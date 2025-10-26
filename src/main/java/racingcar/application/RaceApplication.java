@@ -18,7 +18,7 @@ public class RaceApplication {
         List<Cars> carsToRace = new ArrayList<>();
         carsToRace.add(cars);
         List<Cars> racingResult = doRace(cars, raceNumber, carsToRace);
-        return RacingResult.of(racingResult.subList(1, racingResult.size()));
+        return RacingResult.from(racingResult.subList(1, racingResult.size()));
     }
 
     public List<Cars> doRace(Cars cars, Integer raceCount, List<Cars> racingResult) {
@@ -38,6 +38,6 @@ public class RaceApplication {
         List<Car> racingResult = cars.stream()
                 .map(car -> car.move(forwardStrategy.isMovingForward()))
                 .toList();
-        return Cars.of(racingResult);
+        return Cars.from(racingResult);
     }
 }

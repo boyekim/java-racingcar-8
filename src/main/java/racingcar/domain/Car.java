@@ -20,7 +20,7 @@ public class Car {
         this.distance = distance;
     }
 
-    public static Car of(String name) {
+    public static Car from(String name) {
         validateNameLength(name);
         return new Car(name);
     }

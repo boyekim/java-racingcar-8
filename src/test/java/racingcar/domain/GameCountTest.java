@@ -17,7 +17,7 @@ class GameCountTest {
         String gameNumber = "3";
 
         // when
-        GameCount gameCount = GameCount.of(gameNumber);
+        GameCount gameCount = GameCount.from(gameNumber);
 
         // then
         assertThat(gameCount.getValue()).isEqualTo(3);
@@ -30,7 +30,7 @@ class GameCountTest {
         String gameNumber = "-3";
 
         // when, then
-        assertThatThrownBy(() -> GameCount.of(gameNumber))
+        assertThatThrownBy(() -> GameCount.from(gameNumber))
                 .isInstanceOf(RacingCarException.class)
                 .hasMessage(RacingCarErrorCode.NEGATIVE_GAME_COUNT_NOT_ALLOWED.getMessage());
     }
@@ -42,7 +42,7 @@ class GameCountTest {
         String gameNumber = "1.1";
 
         // when, then
-        assertThatThrownBy(() -> GameCount.of(gameNumber))
+        assertThatThrownBy(() -> GameCount.from(gameNumber))
                 .isInstanceOf(RacingCarException.class)
                 .hasMessage(RacingCarErrorCode.INVALID_GAME_NUMBER.getMessage());
     }
@@ -54,7 +54,7 @@ class GameCountTest {
         String gameNumber = "a";
 
         // when, then
-        assertThatThrownBy(() -> GameCount.of(gameNumber))
+        assertThatThrownBy(() -> GameCount.from(gameNumber))
                 .isInstanceOf(RacingCarException.class)
                 .hasMessage(RacingCarErrorCode.INVALID_GAME_NUMBER.getMessage());
     }
@@ -66,7 +66,7 @@ class GameCountTest {
         String gameNumber = "";
 
         // when, then
-        assertThatThrownBy(() -> GameCount.of(gameNumber))
+        assertThatThrownBy(() -> GameCount.from(gameNumber))
                 .isInstanceOf(RacingCarException.class)
                 .hasMessage(RacingCarErrorCode.GAME_NUMBER_REQUIRED.getMessage());
     }

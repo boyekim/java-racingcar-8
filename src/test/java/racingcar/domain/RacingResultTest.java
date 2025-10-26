@@ -12,17 +12,17 @@ class RacingResultTest {
     @DisplayName("결과를 모아두는 도메인 객체 정상 생성을 확인한다.")
     void makeRacingResult() {
         // given
-        Car carA = Car.of("Boye");
-        Car carB = Car.of("Sumin");
-        Car carC = Car.of("Uchae");
-        Cars firstRoundCars = Cars.of(List.of(carA, carB, carC));
+        Car carA = Car.from("Boye");
+        Car carB = Car.from("Sumin");
+        Car carC = Car.from("Uchae");
+        Cars firstRoundCars = Cars.from(List.of(carA, carB, carC));
 
         Car movedCarA = carA.move(true);
         Car movedCarB = carB.move(true);
-        Cars secondRoundCars = Cars.of(List.of(movedCarA, movedCarB, carC));
+        Cars secondRoundCars = Cars.from(List.of(movedCarA, movedCarB, carC));
 
         // when
-        RacingResult racingResult = RacingResult.of(List.of(firstRoundCars, secondRoundCars));
+        RacingResult racingResult = RacingResult.from(List.of(firstRoundCars, secondRoundCars));
 
         // then
         assertThat(racingResult.getValue())
@@ -37,16 +37,16 @@ class RacingResultTest {
     @DisplayName("승자 판별 로직의 정상 동작을 확인한다.")
     void findWinner() {
         // given
-        Car carA = Car.of("Boye");
-        Car carB = Car.of("Sumin");
-        Car carC = Car.of("Uchae");
-        Cars firstRoundCars = Cars.of(List.of(carA, carB, carC));
+        Car carA = Car.from("Boye");
+        Car carB = Car.from("Sumin");
+        Car carC = Car.from("Uchae");
+        Cars firstRoundCars = Cars.from(List.of(carA, carB, carC));
 
         Car movedCarA = carA.move(true);
         Car movedCarB = carB.move(true);
-        Cars secondRoundCars = Cars.of(List.of(movedCarA, movedCarB, carC));
+        Cars secondRoundCars = Cars.from(List.of(movedCarA, movedCarB, carC));
 
-        RacingResult racingResult = RacingResult.of(List.of(firstRoundCars, secondRoundCars));
+        RacingResult racingResult = RacingResult.from(List.of(firstRoundCars, secondRoundCars));
 
         // when
         List<String> winners = racingResult.findWinners();
